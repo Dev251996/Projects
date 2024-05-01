@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Results</title>
+</head>
+<body>
+	<h1>Search Results for "{{ query }}"</h1>
+	{% if video_urls %}
+		<ul>
+			{% for url in video_urls %}
+				<li>
+					<form action="{{ url_for('play') }}" method="POST">
+						<input type="hidden" name="video_url" value="{{ url }}">
+						<button type="submit">Play "{{ url }}"</button>
+					</form>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>No results found.</p>
+	{% endif %}
+	<br>
+	<a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>

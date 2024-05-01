@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Results</title>
+</head>
+<body>
+	<h1>Search Results for "{{ query }}"</h1>
+	{% if results %}
+		<ul>
+			{% for result in results %}
+				<li><a href="#" onclick="document.getElementById('play-form-{{ loop.index }}').submit();">{{ result }}</a></li>
+				<form id="play-form-{{ loop.index }}" action="{{ url_for('play') }}" method="POST" style="display: none;">
+					<input type="hidden" name="video_name" value="{{ result }}">
+				</form>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>No results found.</p>
+	{% endif %}
+	<br>
+	<a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>

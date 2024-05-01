@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Play Video</title>
+</head>
+<body>
+	<h1>Play Video</h1>
+	<video width="640" height="480" controls>
+		<source src="{{ video_url }}" type="video/mp4">
+	</video>
+	<br>
+	<button onclick="goBack()">Back to Search Results</button>
+	<script>
+		function goBack() {
+			window.history.back();
+		}
+	</script>
+</body>
+</html>
